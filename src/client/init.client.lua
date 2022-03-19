@@ -1,6 +1,18 @@
-local replicatedStorage = game:GetService("ReplicatedStorage")
---local npcModule = require(replicatedStorage.Common.npc.npcModule);
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+-- Test Module
 local npcModule = require(game.ReplicatedStorage.Common.npc);
 npcModule.initialize()
 
-print("Hello world, from client!")
+-- Test 
+
+local common = ReplicatedStorage:WaitForChild("Common", 5);
+local RemoveEvent = common.RemoveEvent;
+
+local StarterGui = game:GetService("StarterGui");
+
+RemoveEvent.OnClientEvent:Connect(function(title)
+    StarterGui:SetCore("SendNotification", {
+        Title = title;
+        Text = title;
+    })
+end)
