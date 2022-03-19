@@ -6,11 +6,11 @@ npcModule.initialize()
 -- Test 
 
 local common = ReplicatedStorage:WaitForChild("Common", 5);
-local RemoveEvent = common.RemoteEvent;
+local RemoteEvent = common.RemoteEvent;
 
 local StarterGui = game:GetService("StarterGui");
 
-RemoveEvent.OnClientEvent:Connect(function(title)
+RemoteEvent.OnClientEvent:Connect(function(title)
     StarterGui:SetCore("SendNotification", {
         Title = "New title:";
         Text = title;
